@@ -16,7 +16,8 @@ In this tutorial, you will learn the basics of Apache Airflow and how to use it 
 ### Prerequisites
 Before getting started with Apache Airflow, make sure you have the following prerequisites:
 
-1. Python (version X.X.X or higher) installed
+1. Python (version 3.6.x or higher) installed
 2. Basic understanding of Python and programming concepts
 3. Familiarity with command-line interface (CLI)
 4. Access to a terminal or command prompt
+5. Version Control (e.g., Git)
