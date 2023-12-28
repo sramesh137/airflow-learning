@@ -21,3 +21,7 @@ Before getting started with Apache Airflow, make sure you have the following pre
 3. Familiarity with command-line interface (CLI)
 4. Access to a terminal or command prompt
 5. Version Control (e.g., Git)
+
+Resources
+[Apache Airflow Documentation](https://airflow.apache.org/docs/)
+[Apache Airflow GitHub Repository](https://github.com/apache/airflow)
