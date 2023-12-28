@@ -23,5 +23,5 @@ Before getting started with Apache Airflow, make sure you have the following pre
 5. Version Control (e.g., Git)
 
 Resources
-[Apache Airflow Documentation](https://airflow.apache.org/docs/)
-[Apache Airflow GitHub Repository](https://github.com/apache/airflow)
+- [Apache Airflow Documentation](https://airflow.apache.org/docs/)
+- [Apache Airflow GitHub Repository](https://github.com/apache/airflow)
