@@ -23,3 +23,11 @@ Before getting started with Apache Airflow, make sure you have the following pre
 Resources
 - [Apache Airflow Documentation](https://airflow.apache.org/docs/)
 - [Apache Airflow GitHub Repository](https://github.com/apache/airflow)
+
+# Examples
+## firsttask.py - Graph flow
+<img width="698" alt="Screenshot 2023-12-29 at 10 20 12 AM" src="https://github.com/sramesh137/airflow-learning/assets/88080444/25c900d7-e64f-4bb2-a39b-5e9245fac93c">
+
+## downstream_and_upstream.py - Graph flow
+<img width="1132" alt="Screenshot 2023-12-29 at 10 22 14 AM" src="https://github.com/sramesh137/airflow-learning/assets/88080444/2eb2332d-2266-4db2-ae6e-6ea43df0f5b4">
+
