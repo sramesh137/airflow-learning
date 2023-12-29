@@ -22,27 +22,41 @@ def task_d_function():
 def task_e_function():
     print("Executing Task E")
 
-# ... (rest of the code remains unchanged)
+# Define default arguments for the DAG
+default_args = {
+    'owner': 'Ramesh',                # Owner of the DAG
+    'start_date': datetime(2023, 1, 1), # Start date for the DAG
+    'retries': 1,                       # Number of retries for each task
+    'retry_delay': timedelta(minutes=1),# Delay between retries
+}
+
+# Create a DAG instance
+dag = DAG(
+    'Upstream_DownStream_Example',                # Unique identifier for the DAG
+    default_args=default_args,          # Default arguments
+    description='A simple example DAG', # Description of the DAG
+    schedule_interval=timedelta(days=1),# Schedule interval for DAG runs (daily in this case)
+)
 
 # Create Task A with a PythonOperator
 task_a = PythonOperator(
-    task_id='task_a',
-    python_callable=task_a_function,
-    dag=dag,
+    task_id='task_a',                   # Unique identifier for the task
+    python_callable=task_a_function,    # Python function to be executed
+    dag=dag,                            # Associated DAG
 )
 
 # Create Task B with a PythonOperator
 task_b = PythonOperator(
-    task_id='task_b',
-    python_callable=task_b_function,
-    dag=dag,
+    task_id='task_b',                   # Unique identifier for the task
+    python_callable=task_b_function,    # Python function to be executed
+    dag=dag,                            # Associated DAG
 )
 
 # Create Task C with a PythonOperator
 task_c = PythonOperator(
-    task_id='task_c',
-    python_callable=task_c_function,
-    dag=dag,
+    task_id='task_c',                   # Unique identifier for the task
+    python_callable=task_c_function,    # Python function to be executed
+    dag=dag,                            # Associated DAG
 )
 
 # Create Task D with a PythonOperator
