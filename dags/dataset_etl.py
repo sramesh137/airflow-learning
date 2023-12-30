@@ -1,3 +1,4 @@
+# This program loads the dataset locally, extracts specific columns, and writes the results to a new CSV file locally. If you wish to upload it to the cloud, this code provides the foundation. However, additional logic for AWS Cloud S3 is required.
 # This Airflow DAG consists of two tasks: 
 # one for selecting specific columns from the dataset and another for printing the processed data.
 #  The tasks are scheduled to run daily, and the print_processed_data_task depends on the successful completion of the select_columns_task.
