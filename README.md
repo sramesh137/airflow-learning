@@ -33,3 +33,50 @@ Resources
 
 ## dataset_etl.py - Graph flow
 <img width="478" alt="Screenshot 2023-12-30 at 12 22 14 PM" src="https://github.com/sramesh137/airflow-learning/assets/88080444/3000ccb4-5435-465f-9738-3fbc814f4abc">
+
+#### Logs for the first task
+```
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=process_static_dataset-ds/run_id=manual__2023-12-29T16:43:01.921567+00:00/task_id=select_columns_task/attempt=1.log
+[2023-12-29, 16:43:02 UTC] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_static_dataset-ds.select_columns_task manual__2023-12-29T16:43:01.921567+00:00 [queued]>
+[2023-12-29, 16:43:02 UTC] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_static_dataset-ds.select_columns_task manual__2023-12-29T16:43:01.921567+00:00 [queued]>
+[2023-12-29, 16:43:02 UTC] {taskinstance.py:2171} INFO - Starting attempt 1 of 2
+[2023-12-29, 16:43:02 UTC] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): select_columns_task> on 2023-12-29 16:43:01.921567+00:00
+[2023-12-29, 16:43:02 UTC] {standard_task_runner.py:60} INFO - Started process 950 to run task
+[2023-12-29, 16:43:02 UTC] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'process_static_dataset-ds', 'select_columns_task', 'manual__2023-12-29T16:43:01.921567+00:00', '--job-id', '135', '--raw', '--subdir', 'DAGS_FOLDER/dataset_etl.py', '--cfg-path', '/tmp/tmpedvl3npo']
+[2023-12-29, 16:43:02 UTC] {standard_task_runner.py:88} INFO - Job 135: Subtask select_columns_task
+[2023-12-29, 16:43:02 UTC] {task_command.py:423} INFO - Running <TaskInstance: process_static_dataset-ds.select_columns_task manual__2023-12-29T16:43:01.921567+00:00 [running]> on host f37f1e05990c
+[2023-12-29, 16:43:02 UTC] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ramesh S-test' AIRFLOW_CTX_DAG_ID='process_static_dataset-ds' AIRFLOW_CTX_TASK_ID='select_columns_task' AIRFLOW_CTX_EXECUTION_DATE='2023-12-29T16:43:01.921567+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-29T16:43:01.921567+00:00'
+[2023-12-29, 16:43:02 UTC] {dataset_etl.py:41} INFO - Step 1: Selected columns successfully.
+[2023-12-29, 16:43:02 UTC] {python.py:201} INFO - Done. Returned value was: None
+[2023-12-29, 16:43:02 UTC] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=process_static_dataset-ds, task_id=select_columns_task, execution_date=20231229T164301, start_date=20231229T164302, end_date=20231229T164302
+[2023-12-29, 16:43:03 UTC] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2023-12-29, 16:43:03 UTC] {taskinstance.py:3281} INFO - 1 downstream tasks scheduled from follow-on schedule check
+```
+
+#### Logs for the second task
+```
+*** Found local files:
+***   * /opt/airflow/logs/dag_id=process_static_dataset-ds/run_id=manual__2023-12-29T16:43:01.921567+00:00/task_id=print_processed_data_task/attempt=1.log
+[2023-12-29, 16:43:03 UTC] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: process_static_dataset-ds.print_processed_data_task manual__2023-12-29T16:43:01.921567+00:00 [queued]>
+[2023-12-29, 16:43:03 UTC] {taskinstance.py:1957} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: process_static_dataset-ds.print_processed_data_task manual__2023-12-29T16:43:01.921567+00:00 [queued]>
+[2023-12-29, 16:43:03 UTC] {taskinstance.py:2171} INFO - Starting attempt 1 of 2
+[2023-12-29, 16:43:03 UTC] {taskinstance.py:2192} INFO - Executing <Task(PythonOperator): print_processed_data_task> on 2023-12-29 16:43:01.921567+00:00
+[2023-12-29, 16:43:03 UTC] {standard_task_runner.py:60} INFO - Started process 985 to run task
+[2023-12-29, 16:43:03 UTC] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'process_static_dataset-ds', 'print_processed_data_task', 'manual__2023-12-29T16:43:01.921567+00:00', '--job-id', '146', '--raw', '--subdir', 'DAGS_FOLDER/dataset_etl.py', '--cfg-path', '/tmp/tmptn_mbeyh']
+[2023-12-29, 16:43:03 UTC] {standard_task_runner.py:88} INFO - Job 146: Subtask print_processed_data_task
+[2023-12-29, 16:43:03 UTC] {task_command.py:423} INFO - Running <TaskInstance: process_static_dataset-ds.print_processed_data_task manual__2023-12-29T16:43:01.921567+00:00 [running]> on host f37f1e05990c
+[2023-12-29, 16:43:04 UTC] {taskinstance.py:2481} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Ramesh S-test' AIRFLOW_CTX_DAG_ID='process_static_dataset-ds' AIRFLOW_CTX_TASK_ID='print_processed_data_task' AIRFLOW_CTX_EXECUTION_DATE='2023-12-29T16:43:01.921567+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2023-12-29T16:43:01.921567+00:00'
+[2023-12-29, 16:43:04 UTC] {dataset_etl.py:54} INFO - Step 2: Processed Dataset:
+[2023-12-29, 16:43:04 UTC] {dataset_etl.py:55} INFO -
+                experience_level   job_title  salary_in_usd company_location
+0               SE  Principal Data Scientist          85847               ES
+1               MI               ML Engineer          30000               US
+2               MI               ML Engineer          25500               US
+3               SE            Data Scientist         175000               CA
+4               SE            Data Scientist         120000               CA
+[2023-12-29, 16:43:04 UTC] {python.py:201} INFO - Done. Returned value was: None
+[2023-12-29, 16:43:04 UTC] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=process_static_dataset-ds, task_id=print_processed_data_task, execution_date=20231229T164301, start_date=20231229T164303, end_date=20231229T164304
+[2023-12-29, 16:43:04 UTC] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2023-12-29, 16:43:04 UTC] {taskinstance.py:3281} INFO - 0 downstream tasks scheduled from follow-on schedule check
+```
