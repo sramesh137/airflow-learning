@@ -5,7 +5,6 @@ Table of Contents
 - [Introduction](#Introduction)
 - [Prerequisites](#Prerequisites)
 - [Installation](#Installation)
-- [Getting Started](#GettingStarted)
 - [Examples](#Examples)
 
 # Introduction
@@ -23,6 +22,45 @@ Before getting started with Apache Airflow, make sure you have the following pre
 Resources
 - [Apache Airflow Documentation](https://airflow.apache.org/docs/)
 - [Apache Airflow GitHub Repository](https://github.com/apache/airflow)
+
+# Installation
+
+## Deploying a Apache Airflow using on docker.
+1. Install Docker Desktop for mac (https://docs.docker.com/desktop/install/mac-install/)
+2. fetch docker-compose.yaml (https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html)
+```
+curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.8.0/docker-compose.yaml'
+```
+3. Create below subdirectories
+```
+mkdir -p ./dags ./logs ./plugins ./config
+```
+4. Initialize the airflow database
+```
+docker compose up airflow-init
+```
+5. Start Docker containers defined in a Docker Compose file in detached mode. Means, start the defined services in the background.
+```
+-> docker compose up -d
+[+] Running 5/5
+ ✔ Container docker-airflow-postgres-1           Healthy                                                                                                                                          0.0s 
+ ✔ Container docker-airflow-airflow-init-1       Started                                                                                                                                          0.0s 
+ ✔ Container docker-airflow-airflow-scheduler-1  Running                                                                                                                                          0.0s 
+ ✔ Container docker-airflow-airflow-triggerer-1  Running                                                                                                                                          0.0s 
+ ✔ Container docker-airflow-airflow-webserver-1  Running                                                                                                                                          0.0s 
+```
+6. List the currently running Docker containers
+```
+➜  docker ps -a
+
+CONTAINER ID   IMAGE                  COMMAND                  CREATED          STATUS                      PORTS                    NAMES
+eef8b236a1c4   apache/airflow:2.8.0   "/usr/bin/dumb-init …"   18 minutes ago   Exited (2) 17 minutes ago                            docker-airflow-flower-1
+bf6bbc0ba723   apache/airflow:2.8.0   "/usr/bin/dumb-init …"   46 hours ago     Up 16 minutes (healthy)     0.0.0.0:8080->8080/tcp   docker-airflow-airflow-webserver-1
+f37f1e05990c   apache/airflow:2.8.0   "/usr/bin/dumb-init …"   46 hours ago     Up 16 minutes (healthy)     8080/tcp                 docker-airflow-airflow-scheduler-1
+29c43530b4a6   apache/airflow:2.8.0   "/usr/bin/dumb-init …"   46 hours ago     Up 16 minutes (healthy)     8080/tcp                 docker-airflow-airflow-triggerer-1
+02b30cdc6852   apache/airflow:2.8.0   "/bin/bash -c 'if [[…"   46 hours ago     Exited (0) 2 minutes ago                             docker-airflow-airflow-init-1
+cacade54f3d3   postgres:13            "docker-entrypoint.s…"   46 hours ago     Up 16 minutes (healthy)     5432/tcp                 docker-airflow-postgres-1
+```
 
 # Examples
 ## firsttask.py - Graph flow
